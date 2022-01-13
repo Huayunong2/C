@@ -13,5 +13,5 @@ size_t my_strlen(const char* str)
 int main()
 {
 	char arr1[] = "hello";
-	printf("×Ö·û´®¸öÊýÎª:%d", my_strlen(arr1));
+	printf("Ö·å­—ç¬¦ä¸²ä¸ªæ•°ä¸º:%d", my_strlen(arr1));
 }
