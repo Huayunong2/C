@@ -1,14 +1,14 @@
 #include<stdio.h>
 int main()
 {
-	//��Ϊ���Ǳ������ԻῪ�ٲ�ͬ�Ŀռ䣬���ʹ�ò�ͬ�ĵ�ַ����a
+	//因为这是变量所以会开辟不同的空间，则会使用不同的地址储存a
 	char arr1[] = "abcdef";
 	char arr2[] = "abcdef";
 	if (arr1 == arr2)
 		printf("arr1 == arr2\n");
 	else
 		printf("arr1 != arr2\n");
-	//�����϶�ָ����ͬһ����һ����ַ������ȡ�Ķ���a�ĵ�ַ
+	//本质上都指向了同一个第一个地址，所以取的都是a的地址
 	const char* str1 = "abcdef";
 	const char* str2 = "abcdef";
 	if (str1 == str2)
