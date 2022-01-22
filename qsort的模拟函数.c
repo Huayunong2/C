@@ -1,5 +1,5 @@
 #include<stdio.h>
-int Bubble(const void* e1, const void* e2) //qsort½øĞĞÕûĞÎÅÅĞòµÄº¯Êı
+int Bubble(const void* e1, const void* e2) //qsortè¿›è¡Œæ•´å½¢æ’åºçš„å‡½æ•°
 {
 	return *(int*)e1 - *(int*)e2;
 }
@@ -15,7 +15,7 @@ void Swap(char* buf1, char* buf2, int width)
 		buf2++;
 	}
 }
-void Bubble_sort(void *base,int sz,int width,int(*Bubble)(const void*e1,const void* e2)) //width¿í¶È,¼ÆËãÆ«ÒÆÁ¿
+void Bubble_sort(void *base,int sz,int width,int(*Bubble)(const void*e1,const void* e2)) //widthå®½åº¦,è®¡ç®—åç§»é‡
 {
 	int i = 0;
 	for (i = 0; i < sz - 1; i++)
@@ -23,9 +23,9 @@ void Bubble_sort(void *base,int sz,int width,int(*Bubble)(const void*e1,const vo
 		int j = 0;
 		for (j = 0; j < sz - 1 - i; j++)
 		{
-			if (Bubble((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
+			if (Bubble((char*)base + j * width, (char*)base + (j + 1) * width) > 0) //ç”¨char*é˜²æ­¢æ’åºç»“æ„ä½“æ•°ç»„å‡ºé”™
 			{
-				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width); //Á½¸öÔªËØ½»»»
+				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width); //ä¸¤ä¸ªå…ƒç´ äº¤æ¢
 			}
 		}
 	}
