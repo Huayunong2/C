@@ -49,13 +49,14 @@ int main()
 		case MODIFY:
 			ModifyPeople(&Add);
 			break;
-		case SORT:
+		case SHOW:
 			Show_This(&Add);
 			break;
-		case SHOW:
+		case SORT:
 			QsortPeople(&Add);
 			break;
 		case EXIT:
+			DestoryAddresser(&Add); //销毁通讯录
 			printf("Exit Addresser!");
 			break;
 		default:
