@@ -3,36 +3,69 @@ void InitAddresser(Addresser* pc)
 {
 	assert(pc);
 	pc->sz = 0;
-	memset(pc->data, 0, sizeof(pc->data));
+	PeoInfo* tmp = (PeoInfo*)malloc(3*sizeof(PeoInfo));
+	if (NULL != tmp)
+	{
+		pc->data = tmp;
+	}
+	else
+	{
+		printf("InitAddresser():%s", strerror(errno));
+		return;
+	}
+	pc->capacity = Default_SZ;
+}
+void DestoryAddresser(Addresser* pc)
+{
+	assert(pc);
+	free(pc->data);
+	pc->data = NULL;
+	pc->sz = 0;
+	pc->capacity = 0;
+	printf("FREE!\n");
+}
+void check_capacity(Addresser* pc) //æ‰©å®¹
+{
+	assert(pc);
+	if (pc->sz == pc->capacity)
+	{
+		PeoInfo* tmp = realloc(pc->data, (pc->capacity + 2) * sizeof(PeoInfo));
+		if (tmp != NULL)
+		{
+			pc->data = tmp;
+			pc->capacity += 2;
+			printf("å¢å®¹æˆåŠŸ!\n");
+		}
+		else
+		{
+			printf("check_capacity():%s\n", strerror(errno));
+		}
+	}
 }
 void Add_This(Addresser* pc) //add
 {
 	assert(pc);
-	printf("------Ìí¼ÓÁªÏµÈË------\n");
-	if (pc->sz == DataMax)
-	{
-		printf("Í¨Ñ¶Â¼ÒÑÂú!\n");
-		return;
-	}
-	//ÊäÈëÁªÏµÈË
-	printf("ÇëÊäÈëÁªÏµÈËĞÕÃû:");
+	printf("------æ·»åŠ è”ç³»äºº------\n");
+	check_capacity(pc);
+	//è¾“å…¥è”ç³»äºº
+	printf("è¯·è¾“å…¥è”ç³»äººå§“å:");
 	scanf("%s", pc->data[pc->sz].name);
-	printf("ÇëÊäÈëÁªÏµÈËÄêÁä:");
+	printf("è¯·è¾“å…¥è”ç³»äººå¹´é¾„:");
 	scanf("%d", &(pc->data[pc->sz].age));
-	printf("ÇëÊäÈëÁªÏµÈËĞÔ±ğ:");
+	printf("è¯·è¾“å…¥è”ç³»äººæ€§åˆ«:");
 	scanf("%s", pc->data[pc->sz].sex);
-	printf("ÇëÊäÈëÁªÏµÈËµç»°:");
+	printf("è¯·è¾“å…¥è”ç³»äººç”µè¯:");
 	scanf("%s", pc->data[pc->sz].tele);
-	printf("ÇëÊäÈëÁªÏµÈË×¡Ö·:");
+	printf("è¯·è¾“å…¥è”ç³»äººä½å€:");
 	scanf("%s", pc->data[pc->sz].addr);
 	pc->sz++;
-	printf("Ôö¼Ó³É¹¦!\n");
+	printf("å¢åŠ æˆåŠŸ!\n");
 }
 void Show_This(const Addresser* pc)
 {
 	assert(pc);
 	int i = 0;
-	printf("%-10s\t%-5s\t%-5s\t%-13s\t%-20s\t\n", "Ãû×Ö", "ÄêÁä", "ĞÔ±ğ", "µç»°", "×¡Ö·");
+	printf("%-10s\t%-5s\t%-5s\t%-13s\t%-20s\t\n", "åå­—", "å¹´é¾„", "æ€§åˆ«", "ç”µè¯", "ä½å€");
 	for (i = 0; i < pc->sz; i++)
 	{
 		printf("%-10s\t%-5d\t%-5s\t%-13s\t%-20s\t\n", pc->data[i].name, pc->data[i].age, pc->data[i].sex, pc->data[i].tele, pc->data[i].addr);
@@ -46,30 +79,30 @@ int FindByName(const Addresser* pc, char name[])
 	{
 		if (strcmp(pc->data[i].name, name) == 0)
 		{
-			return i; //ÕÒµ½ÁË£¬·µ»ØµÚi¸öÏÂ±ê
+			return i; //æ‰¾åˆ°äº†ï¼Œè¿”å›ç¬¬iä¸ªä¸‹æ ‡
 		}
 	}
-	return -1;//ÕÒ²»µ½
+	return -1;//æ‰¾ä¸åˆ°
 }
 void FindPeople(Addresser* pc)
 {
 	assert(pc);
 	if (pc->sz == 0)
 	{
-		printf("Í¨Ñ¶Â¼Îª¿Õ£¬ÎŞ·¨²éÕÒ!\n");
+		printf("é€šè®¯å½•ä¸ºç©ºï¼Œæ— æ³•æŸ¥æ‰¾!\n");
 	}
 	char name[NameMax] = { 0 };
-	printf("ÇëÊäÈëÒª²éÕÒÁªÏµÈËµÄÃû×Ö:");
+	printf("è¯·è¾“å…¥è¦æŸ¥æ‰¾è”ç³»äººçš„åå­—:");
 	scanf("%s", name);
 	int pos = FindByName(pc, name);
 	if (pos == -1)
 	{
-		printf("²éÕÒµÄÈË²»´æÔÚ!\n");
+		printf("æŸ¥æ‰¾çš„äººä¸å­˜åœ¨!\n");
 	}
 	else
 	{
 		int i = pos;
-		printf("%-10s\t%-5s\t%-5s\t%-13s\t%-20s\t\n", "Ãû×Ö", "ÄêÁä", "ĞÔ±ğ", "µç»°", "×¡Ö·");
+		printf("%-10s\t%-5s\t%-5s\t%-13s\t%-20s\t\n", "åå­—", "å¹´é¾„", "æ€§åˆ«", "ç”µè¯", "ä½å€");
 		printf("%-10s\t%-5d\t%-5s\t%-13s\t%-20s\t\n", pc->data[i].name, pc->data[i].age, pc->data[i].sex, pc->data[i].tele, pc->data[i].addr);
 	}
 }
@@ -79,32 +112,32 @@ void ModifyPeople(Addresser* pc)
 	char name[NameMax] = { 0 };
 	if (pc->sz == 0)
 	{
-		printf("Í¨Ñ¶Â¼Îª¿Õ£¬ÎŞ·¨ĞŞ¸Ä!\n");
+		printf("é€šè®¯å½•ä¸ºç©ºï¼Œæ— æ³•ä¿®æ”¹!\n");
 	}
-	printf("ÇëÊäÈëÒªĞŞ¸ÄÁªÏµÈËµÄÃû×Ö:");
+	printf("è¯·è¾“å…¥è¦ä¿®æ”¹è”ç³»äººçš„åå­—:");
 	scanf("%s", name);
 	int pos = FindByName(pc, name);
 	if (pos == -1)
 	{
-		printf("ĞŞ¸ÄµÄÈË²»´æÔÚ!\n");
+		printf("ä¿®æ”¹çš„äººä¸å­˜åœ¨!\n");
 	}
 	else
 	{
 		int i = pos;
-		printf("%-10s\t%-5s\t%-5s\t%-13s\t%-20s\t\n", "Ãû×Ö", "ÄêÁä", "ĞÔ±ğ", "µç»°", "×¡Ö·");
+		printf("%-10s\t%-5s\t%-5s\t%-13s\t%-20s\t\n", "åå­—", "å¹´é¾„", "æ€§åˆ«", "ç”µè¯", "ä½å€");
 		printf("%-10s\t%-5d\t%-5s\t%-13s\t%-20s\t\n", pc->data[i].name, pc->data[i].age, pc->data[i].sex, pc->data[i].tele, pc->data[i].addr);
-		printf("¿ªÊ¼ĞŞ¸ÄÖ¸¶¨ÁªÏµÈËµÄĞÅÏ¢!\n");
-		printf("ÇëĞŞ¸ÄÁªÏµÈËĞÕÃû:");
+		printf("å¼€å§‹ä¿®æ”¹æŒ‡å®šè”ç³»äººçš„ä¿¡æ¯!\n");
+		printf("è¯·ä¿®æ”¹è”ç³»äººå§“å:");
 		scanf("%s", pc->data[i].name);
-		printf("ÇëĞŞ¸ÄÁªÏµÈËÄêÁä:");
+		printf("è¯·ä¿®æ”¹è”ç³»äººå¹´é¾„:");
 		scanf("%d", &(pc->data[i].age));
-		printf("ÇëĞŞ¸ÄÁªÏµÈËĞÔ±ğ:");
+		printf("è¯·ä¿®æ”¹è”ç³»äººæ€§åˆ«:");
 		scanf("%s", pc->data[i].sex);
-		printf("ÇëĞŞ¸ÄÁªÏµÈËµç»°:");
+		printf("è¯·ä¿®æ”¹è”ç³»äººç”µè¯:");
 		scanf("%s", pc->data[i].tele);
-		printf("ÇëĞŞ¸ÄÁªÏµÈË×¡Ö·:");
+		printf("è¯·ä¿®æ”¹è”ç³»äººä½å€:");
 		scanf("%s", pc->data[i].addr);
-		printf("ĞŞ¸Ä³É¹¦!\n");
+		printf("ä¿®æ”¹æˆåŠŸ!\n");
 	}
 }
 void Dele_This(Addresser* pc)
@@ -112,17 +145,17 @@ void Dele_This(Addresser* pc)
 	char name[NameMax] = { 0 };
 	if (pc->sz == 0)
 	{
-		printf("Í¨Ñ¶Â¼Îª¿Õ£¬ÎŞ·¨É¾³ı!\n");
+		printf("é€šè®¯å½•ä¸ºç©ºï¼Œæ— æ³•åˆ é™¤!\n");
 	}
-	printf("ÇëÊäÈëÒªÉ¾³ıÁªÏµÈËµÄÃû×Ö:");
+	printf("è¯·è¾“å…¥è¦åˆ é™¤è”ç³»äººçš„åå­—:");
 	scanf("%s", name);
-	//²éÕÒÖ¸¶¨ÁªÏµÈË-->É¾³ı
+	//æŸ¥æ‰¾æŒ‡å®šè”ç³»äºº-->åˆ é™¤
 	int pos = FindByName(pc, name);
 	if (pos == -1)
 	{
-		printf("ÒªÉ¾³ıµÄÈË²»´æÔÚ!\n");
+		printf("è¦åˆ é™¤çš„äººä¸å­˜åœ¨!\n");
 	}
-	else //É¾³ı
+	else //åˆ é™¤
 	{
 		int j = 0;
 		for (j = pos; j < pc->sz-1; j++)
@@ -130,44 +163,14 @@ void Dele_This(Addresser* pc)
 			pc->data[j] = pc->data[j + 1];
 		}
 		pc->sz--;
-		printf("É¾³ıÖ¸¶¨ÁªÏµÈË³É¹¦!\n");
+		printf("åˆ é™¤æŒ‡å®šè”ç³»äººæˆåŠŸ!\n");
 	}
 }
-int cmp_struct_age(const void* e1, const void* e2) //qsort½øĞĞÕûĞÎÅÅĞòµÄº¯Êı
+int cmp_struct_age(const void* e1, const void* e2) //qsortè¿›è¡Œæ•´å½¢æ’åºçš„å‡½æ•°
 {
 
 }
 void QsortPeople(Addresser* pc)
 {
-	assert(pc);
-	if (pc->sz == 0)
-	{
-		printf("Í¨Ñ¶Â¼Îª¿Õ£¬ÎŞ·¨ÅÅĞò!\n");
-	}
-	int input = 0;
-	printf("ÇëÑ¡ÔñÅÅĞò·½Ê½:1.ÄêÁäÅÅĞò 2.Ãû×ÖÅÅĞò 0.ÍË³ö\n");
-	scanf("%d", &input);
-	switch (input)
-	{
-	case 1:
-		printf("½øĞĞÄêÁäÅÅĞò!\n");
-		int i = 0;
-		qsort(pc, pc->sz, sizeof(pc[0]), cmp_struct_age);
-		for (i = 0; i < pc->sz; i++)
-		{
-			printf("%-10s\t%-5s\t%-5s\t%-13s\t%-20s\t\n", "Ãû×Ö", "ÄêÁä", "ĞÔ±ğ", "µç»°", "×¡Ö·");
-			printf("%-10s\t%-5d\t%-5s\t%-13s\t%-20s\t\n", pc->data[i].name, pc->data[i].age, pc->data[i].sex, pc->data[i].tele, pc->data[i].addr);
-		}
-		printf("ÅÅĞòÍê³É!\n");
-		break;
-	case 2:
-		printf("½øĞĞÃû×ÖÅÅĞò!\n");
-		break;
-	case 0:
-		printf("ÍË³ö!\n");
-		break;
-	default:
-		printf("ÊäÈë´íÎó,ÍË³ö!\n");
-		break;
-	}
+	
 }
