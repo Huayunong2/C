@@ -1,12 +1,22 @@
 #include "text.h"
-/* 1.´æ·Å1000¸öÁªÏµÈËĞÅÏ¢
-* 2.ĞÅÏ¢:Ãû×Ö£¬ÄêÁä£¬µç»°£¬×¡Ö·£¬ĞÔ±ğ
-* 3.Ôö¼ÓÁªÏµÈË
-* 4.É¾³ıÁªÏµÈË
-* 5.²éÕÒÁªÏµÈË
-* 6.ĞŞ¸ÄÁªÏµÈË
-* 7.ÅÅĞò(ÄêÁä/Ãû×Ö)
+/* 1.å­˜æ”¾1000ä¸ªè”ç³»äººä¿¡æ¯
+* 2.ä¿¡æ¯:åå­—ï¼Œå¹´é¾„ï¼Œç”µè¯ï¼Œä½å€ï¼Œæ€§åˆ«
+* 3.å¢åŠ è”ç³»äºº
+* 4.åˆ é™¤è”ç³»äºº
+* 5.æŸ¥æ‰¾è”ç³»äºº
+* 6.ä¿®æ”¹è”ç³»äºº
+* 7.æ’åº(å¹´é¾„/åå­—)
 */
+enum Oprion
+{
+	EXIT,
+	ADD,
+	DEL,
+	SEARCH,
+	MODIFY,
+	SHOW,
+	SORT,
+};
 void menu()
 {
 	printf("*************************************************\n");
@@ -23,29 +33,29 @@ int main()
 	do
 	{
 		menu();
-		printf("ÇëÊäÈë¹¦ÄÜ:");
+		printf("è¯·è¾“å…¥åŠŸèƒ½:");
 		scanf("%d", &input);
 		switch (input)
 		{
-		case 1:
+		case ADD:
 			Add_This(&Add);
 			break;
-		case 2:
+		case DEL:
 			Dele_This(&Add);
 			break;
-		case 3:
+		case SEARCH:
 			FindPeople(&Add);
 			break;
-		case 4:
+		case MODIFY:
 			ModifyPeople(&Add);
 			break;
-		case 5:
+		case SORT:
 			Show_This(&Add);
 			break;
-		case 6:
+		case SHOW:
 			QsortPeople(&Add);
 			break;
-		case 0:
+		case EXIT:
 			printf("Exit Addresser!");
 			break;
 		default:
