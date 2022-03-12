@@ -1,5 +1,5 @@
 #include "Seqlist.h"
-//size Êý×éÔªËØ¸öÊý capacity À©ÈÝ a Êý×éÄÚÈÝ
+//size æ•°ç»„å…ƒç´ ä¸ªæ•° capacity æ‰©å®¹ a æ•°ç»„å†…å®¹
 void SeqListPrint(SeqList* psl)
 {
 	assert(psl);
@@ -45,7 +45,7 @@ void SeqListCheckCapacity(SeqList* psl)
 void SeqListPushBack(SeqList* psl, SLDataType x)
 {
 	assert(psl);
-	//ÂúÁËÔòÀ©ÈÝ
+	//æ»¡äº†åˆ™æ‰©å®¹
 	SeqListCheckCapacity(psl);
 	psl->a[psl->size] = x;
 	psl->size++;
@@ -61,14 +61,14 @@ void SeqListPopBack(SeqList* psl)
 void SeqListPushFront(SeqList* psl, SLDataType x)
 {
 	assert(psl);
-	SeqListCheckCapacity(psl); //À©ÈÝ
-	int end = psl->size - 1; //ÈÃendµÈÓÚ×îºóÒ»¸öÔªËØ
+	SeqListCheckCapacity(psl); //æ‰©å®¹
+	int end = psl->size - 1; //è®©endç­‰äºŽæœ€åŽä¸€ä¸ªå…ƒç´ 
 	while (end >= 0)
 	{
-		psl->a[end + 1] = psl->a[end]; //ÈÃÔªËØÒÀ´ÎÍùºóÒÆ
+		psl->a[end + 1] = psl->a[end]; //è®©å…ƒç´ ä¾æ¬¡å¾€åŽç§»
 		--end;
 	}
-	psl->a[0] = x; //½«¼ÓÈëµÄÔªËØ·ÅÔÚÊ×Î»
+	psl->a[0] = x; //å°†åŠ å…¥çš„å…ƒç´ æ”¾åœ¨é¦–ä½
 	psl->size++;
 }
 void SeqListPopFront(SeqList* psl)
@@ -87,18 +87,18 @@ void SeqListPopFront(SeqList* psl)
 }
 void SeqListInsert(SeqList* psl, size_t pos, SLDataType x)
 {
-	//±©Á¦¼ì²é
+	//æš´åŠ›æ£€æŸ¥
 	assert(psl);
 	assert(pos < psl->size);
-	//ÎÂºÍ¼ì²é
+	//æ¸©å’Œæ£€æŸ¥
 	/*if (pos > psl->size)
 	{
-		printf("pos Ô½½ç:%d\n", pos);
+		printf("pos è¶Šç•Œ:%d\n", pos);
 		return;
 	}*/
 	SeqListCheckCapacity(psl);
 	size_t end = psl->size - 1;
-	while (end > pos) //×¢ÒâÕûÐÎÌáÉý
+	while (end > pos) //æ³¨æ„æ•´å½¢æå‡
 	{
 		psl->a[end] = psl->a[end - 1];
 		--end;
@@ -129,4 +129,10 @@ int SeqListFind(SeqList* psl, SLDataType x)
 		}
 	}
 	return -1;
+}
+void SeqListModify(SeqList* psl, size_t pos, SLDataType x)
+{
+    assert(psl);
+    assert(pos < psl->size);
+    psl->a[pos] = x;
 }
