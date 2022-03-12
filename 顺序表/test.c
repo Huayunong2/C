@@ -2,10 +2,11 @@
 void menu()
 {
 	printf("*************************************\n");
-	printf("***  1.Î²²å 2.Í·²å 3.Î²É¾ 4.Í·É¾  ***\n");
-	printf("***  5.×Ô²å 6.×ÔÉ¾ 7.²éÕÒ 8.´òÓ¡  ***\n");
-	printf("***            0.ÍË³ö             ***\n");
+	printf("***  1.å°¾æ’ 2.å¤´æ’ 3.å°¾åˆ  4.å¤´åˆ   ***\n");
+	printf("***  5.è‡ªæ’ 6.è‡ªåˆ  7.æŸ¥æ‰¾ 8.æ‰“å°  ***\n");
+	printf("***         9.ä¿®æ”¹ 0.é€€å‡º         ***\n");
 	printf("*************************************\n");
+}
 }
  int main()
 {
@@ -15,25 +16,25 @@ void menu()
 	 do
 	 {
 		 menu();
-		 printf("ÇëÑ¡Ôñ´úÂë:>");
+		 printf("è¯·é€‰æ‹©ä»£ç :>");
 		 scanf("%d", &option);
 		 int val = 0;
 		 switch (option)
 		 {
 		 case 1:
-			 printf("ÇëÊäÈëÄãÒªÎ²²åµÄÊı¾İ:>");
+			 printf("è¯·è¾“å…¥ä½ è¦å°¾æ’çš„æ•°æ®:>");
 			 scanf("%d", &val);
 			 SeqListPushBack(&s, val);
 			 SeqListPrint(&s);
 			 break;
 		 case 3:
-			 printf("Î²É¾³É¹¦!\n");
+			 printf("å°¾åˆ æˆåŠŸ!\n");
 			 SeqListPopBack(&s);
 			 SeqListPrint(&s);
 		 case 8:
 			 SeqListPrint(&s);
 		 case 0:
-			 printf("ÍË³ö!\n");
+			 printf("é€€å‡º!\n");
 		 }
 	 } while (option);
 }
@@ -42,13 +43,13 @@ void menu()
 	//SeqListPushBack(&s, 1);
 	//SeqListPushBack(&s, 2);
 	//SeqListPushBack(&s, 3);
-	////Ê±¼ä¸´ÔÓ¶ÈO(1)
-	//SeqListPushBack(&s, 4);//Î²¼Ó
-	///*SeqListPopBack(&s);*///Î²É¾
-	////Ê±¼ä¸´ÔÓ¶ÈO(n)
-	//SeqListPushFront(&s, 0); //Í·¼Ó
-	//SeqListPopFront(&s);//Í·É¾
-	//SeqListInsert(&s, 0, 99);//ÔÚposÎ»ÖÃºó²åÈë
-	//SeqListErase(&s, 0); //ÔÚposÎ»ÖÃÉ¾³ı
+	////æ—¶é—´å¤æ‚åº¦O(1)
+	//SeqListPushBack(&s, 4);//å°¾åŠ 
+	///*SeqListPopBack(&s);*///å°¾åˆ 
+	////æ—¶é—´å¤æ‚åº¦O(n)
+	//SeqListPushFront(&s, 0); //å¤´åŠ 
+	//SeqListPopFront(&s);//å¤´åˆ 
+	//SeqListInsert(&s, 0, 99);//åœ¨posä½ç½®åæ’å…¥
+	//SeqListErase(&s, 0); //åœ¨posä½ç½®åˆ é™¤
 	//SeqListPrint(&s);
 	//SeqListDestroy(&s);
