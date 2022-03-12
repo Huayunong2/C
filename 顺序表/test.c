@@ -7,7 +7,6 @@ void menu()
 	printf("***         9.修改 0.退出         ***\n");
 	printf("*************************************\n");
 }
-}
  int main()
 {
 	 SeqList s;
