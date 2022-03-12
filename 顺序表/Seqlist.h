@@ -4,20 +4,22 @@
 typedef int SLDataType;
 typedef struct SeqList {
 	SLDataType* a;
-	int size; //´æ´¢Êı¾İµÄ¸öÊı
-	int capacity; //´æÊı¾İµÄ´óĞ¡
+	int size; //å­˜å‚¨æ•°æ®çš„ä¸ªæ•°
+	int capacity; //å­˜æ•°æ®çš„å¤§å°
 }SeqList;
-void SeqListPrint(SeqList* psl); //´òÓ¡
-void SeqListInit(SeqList* psl); //³õÊ¼»¯
+void SeqListPrint(SeqList* psl); //æ‰“å°
+void SeqListInit(SeqList* psl); //åˆå§‹åŒ–
 void SeqListDestroy(SeqList* psl);
-void SeqListCheckCapacity(SeqList* psl); //À©Èİ
+void SeqListCheckCapacity(SeqList* psl); //æ‰©å®¹
 void SeqListPushBack(SeqList* psl, SLDataType x);
 void SeqListPopBack(SeqList* psl);
 void SeqListPushFront(SeqList* psl, SLDataType x);
 void SeqListPopFront(SeqList* psl);
-//ÔÚposÎ»ÖÃ²åÈëx
+//åœ¨posä½ç½®æ’å…¥x
 void SeqListInsert(SeqList* psl, size_t pos, SLDataType x);
-//É¾³ıposÎ»ÖÃµÄÊı¾İ
+//åˆ é™¤posä½ç½®çš„æ•°æ®
 void SeqListErase(SeqList* psl, size_t pos);
 //Find
 int SeqListFind(SeqList* psl, SLDataType x);
+//ä¿®æ”¹
+void SeqListModify(SeqList* psl, size_t pos, SLDataType x);
