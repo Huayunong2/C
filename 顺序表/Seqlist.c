@@ -97,7 +97,7 @@ void SeqListInsert(SeqList* psl, size_t pos, SLDataType x)
 		return;
 	}*/
 	SeqListCheckCapacity(psl);
-	size_t end = psl->size - 1;
+	size_t end = psl->size;
 	while (end > pos) //注意整形提升
 	{
 		psl->a[end] = psl->a[end - 1];
