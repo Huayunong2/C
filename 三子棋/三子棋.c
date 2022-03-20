@@ -1,4 +1,4 @@
-//ÓÎÏ·Ïà¹Øº¯ÊýµÄÊµÏÖ
+//æ¸¸æˆç›¸å…³å‡½æ•°
 #include "game.h"
 void InitBoard(char board[ROW][COL], int row, int col)
 {
@@ -43,7 +43,7 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	printf("ÇëÑ¡ÔñÏÂÆåµÄ×ø±ê:>");
+	printf("è¯·é€‰æ‹©ä¸‹æ£‹çš„åæ ‡:>");
 	while (1)
 	{
 		scanf("%d %d", &x, &y);
@@ -51,23 +51,23 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 		{
 			if (board[x-1][y-1] == ' ')
 			{
-				board[x - 1][y - 1] = '*'; //¼Ù¶¨ÏÂµÄÆåÎª*
-				break; //ÏÂÍêÆå½øÈë¶ÔÊÖ»ØºÏ£¬ÔòÌø³ö
+				board[x - 1][y - 1] = '*'; //å‡å®šä¸‹çš„æ£‹ä¸º*
+				break; //ä¸‹å®Œæ£‹è¿›å…¥å¯¹æ‰‹å›žåˆï¼Œåˆ™è·³å‡º
 			}
 			else
 			{
-				printf("¸Ã¸ñÒÑ±»Õ¼ÓÃ£¬ÇëÖØÐÂÊäÈë:>");
+				printf("è¯¥æ ¼å·²è¢«å ç”¨ï¼Œè¯·é‡æ–°è¾“å…¥:>");
 			}
 		}
 		else
 		{
-			printf("×ø±ê´íÎó£¬ÇëÖØÐÂÊäÈë:>");
+			printf("åæ ‡é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥:>");
 		}
 	}
 }
 void ComputerMove(char board[ROW][COL], int row, int col)
 {
-	printf("±¾»ØºÏÊÇµçÄÔ×ß:>\n");
+	printf("æœ¬å›žåˆæ˜¯ç”µè„‘èµ°:>\n");
 	while (1)
 	{
 		int x = rand() % row;
@@ -98,19 +98,19 @@ int IsFull(char board[ROW][COL], int row, int col)
 char IS_win(char board[ROW][COL], int row, int col)
 {
 	int i = 0;
-	//ÅÐ¶ÏÐÐ
+	//åˆ¤æ–­è¡Œ
 	for (i = 0; i < row; i++)
 	{
 		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][1] != ' ')
 			return board[i][0];
 	}
-	//ÅÐ¶ÏÁÐ
+	//åˆ¤æ–­åˆ—
 	for (i = 0; i < col; i++)
 	{
 		if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[1][i] != ' ')
 			return board[1][i];
 	}
-	//ÅÐ¶Ï¶Ô½ÇÏß
+	//åˆ¤æ–­å¯¹è§’çº¿
 	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ')
 	{
 		return board[1][1];
@@ -119,7 +119,7 @@ char IS_win(char board[ROW][COL], int row, int col)
 	{
 		return board[1][1];
 	}
-	//ÅÐ¶ÏÆ½¾Ö
+	//åˆ¤æ–­å¹³å±€
 	int ret = IsFull(board, row, col);
 	if (ret == 1)
 	{
