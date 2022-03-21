@@ -1,7 +1,7 @@
 #include "Seqlist.h"
 void SListNodePrint(SListNode* phead)
 {
-	/*assert(phead);*/ //Á´±í¿ÉÄÜÎª¿Õ,assert¹ýÓÚ±©Á¦»áÖ±½ÓÖÕÖ¹³ÌÐò
+	/*assert(phead);*/ //é“¾è¡¨å¯èƒ½ä¸ºç©º,assertè¿‡äºŽæš´åŠ›ä¼šç›´æŽ¥ç»ˆæ­¢ç¨‹åº
 	SListNode* cur = phead;
 	while (cur != NULL)
 	{
@@ -35,7 +35,7 @@ void SListPushBack(SListNode** pphead, SLTDataType x)
 	}
 	else
 	{
-		//ÕÒÎ²
+		//æ‰¾å°¾
 		SListNode* tail = *pphead;
 		while (tail->next != NULL)
 		{
@@ -53,7 +53,7 @@ void SListPushFront(SListNode** pphead, SLTDataType x)
 }
 void SListPopBack(SListNode** pphead)
 {
-	/*assert(pphead);*/
+	//assert(pphead);
 	if (*pphead == NULL)
 	{
 		return;
