@@ -52,15 +52,15 @@ void ListInsert(LTNode* pos, LTDataType x)
 	* newnode->prev = posPrev;
 	*/
 }
-//ÍÕ·å·¨
-//º¯ÊýºÍÀàÐÍËùÓÐµ¥´ÊÊ××ÖÄ¸´óÐ´
-//±äÁ¿µÚÒ»¸öµ¥´ÊÐ¡Ð´£¬ºóÐøµ¥´ÊÊ××ÖÄ¸´óÐ´
-void ListErase(LTNode* pos) //É¾³ýposÇ°Ò»¸öÖµ
+//é©¼å³°æ³•
+//å‡½æ•°å’Œç±»åž‹æ‰€æœ‰å•è¯é¦–å­—æ¯å¤§å†™
+//å˜é‡ç¬¬ä¸€ä¸ªå•è¯å°å†™ï¼ŒåŽç»­å•è¯é¦–å­—æ¯å¤§å†™
+void ListErase(LTNode* pos) //åˆ é™¤poså‰ä¸€ä¸ªå€¼
 {
 	assert(pos);
 	LTNode* p = pos->prev;
 	LTNode* n = pos->next;
-	free(pos); //ÔÚÕâÀïÖÃ¿ÕÖ»»á¸Ä±äÐÎ²ÎµÄÖµ£¬²»¸Ä±äÊµ²ÎµÄÖµ
+	free(pos); //åœ¨è¿™é‡Œç½®ç©ºåªä¼šæ”¹å˜å½¢å‚çš„å€¼ï¼Œä¸æ”¹å˜å®žå‚çš„å€¼
 	p->next = n;
 	n->prev = p;
 }
@@ -77,8 +77,8 @@ void ListPushBack(LTNode* phead, LTDataType x)
 }
 void ListPopBack(LTNode* phead)
 {
-	assert(phead);//Á´±íÎª¿Õ
-	assert(phead->next != phead);//½öÓÐÉÚ±øÎ»
+	assert(phead);//é“¾è¡¨ä¸ºç©º
+	assert(phead->next != phead);//ä»…æœ‰å“¨å…µä½
 	ListErase(phead->prev);
 	/*LTNode* tail = phead->prev;
 	LTNode* tailPrev = tail->prev;
@@ -111,4 +111,16 @@ LTNode* ListFind(LTNode* phead, LTDataType x)
 		cur = cur->next;
 	}
 	return NULL;
+}
+void ListDestory(LTNode* phead)
+{
+	assert(phead);
+	LTNode* cur = phead->next;
+	while (cur != phead)
+	{
+		LTNode* next = cur->next;
+		ListErase(cur);
+		cur = next;
+	}
+	free(phead);
 }
