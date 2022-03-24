@@ -35,5 +35,7 @@ int main()
 	printf("\n");
 	ListPopFront(plist);
 	ListPrint(plist);
+    ListDestory(plist);
+	phead = NULL;
 	return 0;
 }
