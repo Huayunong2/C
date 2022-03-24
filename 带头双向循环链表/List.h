@@ -19,5 +19,6 @@ void ListPopBack(LTNode* phead);
 void ListPushFront(LTNode* phead, LTDataType x);
 void ListPopFront(LTNode* phead);
 LTNode* ListFind(LTNode* phead, LTDataType x);
-void ListInsert(LTNode* pos, LTDataType x); //pos之前插入
+void ListInsert(LTNode* pos, LTDataType x); //pos之前
 void ListErase(LTNode* pos);
+void ListDestroy(LTNode* pos);
