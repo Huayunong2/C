@@ -1,6 +1,6 @@
-//º¯ÊıÇóÈòÄê
+//å‡½æ•°æ±‚é—°å¹´
 //#include<stdio.h>
-//int is_leap_year(int n) //Ò»¸öº¯ÊıÈç¹û²»Ğ´·µ»ØÀàĞÍ£¬Ä¬ÈÏ·µ»ØintÀàĞÍ
+//int is_leap_year(int n) //ä¸€ä¸ªå‡½æ•°å¦‚æœä¸å†™è¿”å›ç±»å‹ï¼Œé»˜è®¤è¿”å›intç±»å‹
 //{
 //	if ((n % 4 == 0 && n % 100 != 0) || (n % 400 == 0))
 //		return 1;
@@ -14,7 +14,7 @@
 //	{
 //		if (is_leap_year(y) == 1)
 //		{
-//			printf("%dÊÇÈòÄê", y);
+//			printf("%dæ˜¯é—°å¹´", y);
 //		}
 //	}
 //	return 0;
@@ -22,7 +22,7 @@
 //
 
 
-//º¯ÊıÇóËØÊı
+//å‡½æ•°æ±‚ç´ æ•°
 //#include<stdio.h>
 //int is_prime(int n)
 //{
@@ -42,7 +42,7 @@
 //	{
 //		if (is_prime(i) == 1)
 //		{
-//			printf("%dÊÇËØÊı\n", i);
+//			printf("%dæ˜¯ç´ æ•°\n", i);
 //			count++;
 //		}
 //	}
@@ -51,7 +51,7 @@
 
 
 //#include<stdio.h>
-//int binary_search(int a[], int k,int s) //Èç¹ûÃ»ÓĞ´«sz£¬½ö´«arr£¬ÄÇÃ´¾Í½ö´«ÁËÊ×µØÖ·
+//int binary_search(int a[], int k,int s) //å¦‚æœæ²¡æœ‰ä¼ szï¼Œä»…ä¼ arrï¼Œé‚£ä¹ˆå°±ä»…ä¼ äº†é¦–åœ°å€
 //{
 //	int left = 0;
 //	int right = s - 1;
@@ -71,7 +71,7 @@
 //			return mid;
 //		}
 //	}
-//	return -1; //ÕÒ²»µ½ÁË
+//	return -1; //æ‰¾ä¸åˆ°äº†
 //}
 //int main()
 //{
@@ -81,11 +81,11 @@
 //	int ret = binary_search(arr,key,sz);
 //	if (-1 == ret)
 //	{
-//		printf("ÕÒ²»µ½\n");
+//		printf("æ‰¾ä¸åˆ°\n");
 //	}
 //	else
 //	{
-//		printf("ÕÒµ½ÁË£¬ÏÂ±êÊÇ%d", ret);
+//		printf("æ‰¾åˆ°äº†ï¼Œä¸‹æ ‡æ˜¯%d", ret);
 //	}
 //	return 0;
 //}
@@ -107,7 +107,7 @@
 //	return 0;
 //}
 
-//×ª»»
+//è½¬æ¢
 //#include<stdio.h>
 //#include<string.h>
 //int main()
@@ -127,7 +127,7 @@
 //	return 0;
 //}
 
-//Ç¶Ì×µ÷ÓÃ
+//åµŒå¥—è°ƒç”¨
 //#include<stdio.h>
 //void new_line()
 //{
@@ -147,7 +147,7 @@
 //	return 0;
 //}
 
-//³õ¼¶µ÷ÓÃ
+//åˆçº§è°ƒç”¨
 //#include<stdio.h>
 //max_ab(int x, int y)
 //{
@@ -157,14 +157,14 @@
 //{
 //	int a = 0;
 //	int b = 0;
-//	printf("ÇëÊäÈëÁ½¸öÊı:");
+//	printf("è¯·è¾“å…¥ä¸¤ä¸ªæ•°:");
 //	scanf("%d %d", &a, &b);
 //	int max = max_ab(a, b);
 //	printf("%d", max);
 //}
 
-//Á´Ê½·ÃÎÊ
-// ÁĞÒ»:
+//é“¾å¼è®¿é—®
+// åˆ—ä¸€:
 //#include<stdio.h>
 //#include<string.h>
 //int main()
@@ -174,7 +174,7 @@
 //	printf("%d\n", strlen("abc"));
 //	return 0;
 //}
-// ÁĞ¶ş:
+// åˆ—äºŒ:
 //#include<stdio.h>
 //#include<string.h>
 //int main()
@@ -186,11 +186,11 @@
 //	printf("%s\n", strcpy(arr1, arr2));
 //	return 0;
 //}
-//ÁĞÈı:
+//åˆ—ä¸‰:
 //#include<stdio.h>
 //int main()
 //{
-//	printf("%d", printf("%d", printf("%d", 5))); //printfºóÃæ´òÓ¡×Ö·ûÊı
+//	printf("%d", printf("%d", printf("%d", 5))); //printfåé¢æ‰“å°å­—ç¬¦æ•°
 //	return 0;
 //}
 
@@ -199,7 +199,7 @@
 //{
 //	int a = 10;
 //	int b = 20;
-	//ÉùÃ÷º¯Êı£¬¸æÖª±¾³ÌĞòÓĞ´Ëº¯Êı
+	//å£°æ˜å‡½æ•°ï¼Œå‘ŠçŸ¥æœ¬ç¨‹åºæœ‰æ­¤å‡½æ•°
 //	int add(int,int);
 //	int c = add(a, b);
 //	printf("%d", c);
@@ -210,7 +210,7 @@
 //	return x + y;
 //}
 
-//º¯ÊıµÄÉùÃ÷:.hÎÄ¼ş(Í·ÎÄ¼ş)½øĞĞÉùÃ÷,.cÎÄ¼ş½øĞĞº¯Êı¶¨Òå
+//å‡½æ•°çš„å£°æ˜:.hæ–‡ä»¶(å¤´æ–‡ä»¶)è¿›è¡Œå£°æ˜,.cæ–‡ä»¶è¿›è¡Œå‡½æ•°å®šä¹‰
 //#include<stdio.h>
 //#include "add.h"
 //int main()
@@ -221,7 +221,7 @@
 //	printf("%d", a);
 //}
 
-//×î¼òµ¥µÄµİ¹é-º¯Êı×Ô¼ºµ÷ÓÃ×Ô¼º
+//æœ€ç®€å•çš„é€’å½’-å‡½æ•°è‡ªå·±è°ƒç”¨è‡ªå·±
 //#include<stdio.h>
 //int main()
 //{
@@ -230,7 +230,7 @@
 //}
 
 
-//µİ¹é³õ²½Ê¹ÓÃ
+//é€’å½’åˆæ­¥ä½¿ç”¨
 //#include<stdio.h>
 //void print(unsigned int n)
 //{
@@ -244,7 +244,7 @@
 //{
 //	unsigned int num = 0;
 //	scanf("%u", &num);
-//	print(num); //printº¯Êı¿ÉÒÔ´òÓ¡²ÎÊı²¿·ÖÊı×ÖµÄÃ¿Ò»Î»
+//	print(num); //printå‡½æ•°å¯ä»¥æ‰“å°å‚æ•°éƒ¨åˆ†æ•°å­—çš„æ¯ä¸€ä½
 //	return 0;
 //}
 
@@ -265,7 +265,7 @@
 //}
 
 
-//º¯Êı½×³Ë
+//å‡½æ•°é˜¶ä¹˜
 //#include<stdio.h>
 //int Fac(int n)
 //{
@@ -284,8 +284,8 @@
 //}
 
 
-//ÇóµÚnì³²¨ÄÇÆõÊı(Ç°Á½¸öÊıÖ®ºÍµÈÓÚµÚÈı¸öÊı)
-//µİ¹é¿ÉÒÔÇó½â£¬µ«ÊÇĞ§ÂÊÌ«µÍ
+//æ±‚ç¬¬næ–æ³¢é‚£å¥‘æ•°(å‰ä¸¤ä¸ªæ•°ä¹‹å’Œç­‰äºç¬¬ä¸‰ä¸ªæ•°)
+//é€’å½’å¯ä»¥æ±‚è§£ï¼Œä½†æ˜¯æ•ˆç‡å¤ªä½
 //#include<stdio.h>
 //int Fib(int n)
 //{
@@ -311,7 +311,7 @@
 //}
 
 
-//Ë¼Î¬ÑµÁ·£¬1/1+1/2-1/3+1/4...-1/100=?
+//æ€ç»´è®­ç»ƒï¼Œ1/1+1/2-1/3+1/4...-1/100=?
 //#include<stdio.h>
 //int main()
 //{
@@ -358,15 +358,16 @@
 //}
 
 
-//Ã°ÅİÅÅĞò
+//å†’æ³¡æ’åº
 //#include<stdio.h>
 //void bubble_sort(int arr[], int s)
 //{
 //	int i = 0;
-//	for (i = 0; i < s - 1; i++) //Ò»ÌËÃ°ÅİÅÅĞò
+//	for (i = 0; i < s - 1; i++) //ä¸€è¶Ÿå†’æ³¡æ’åº
 //	{
 //		int j = 0;
-//		if (arr[j] > arr[j + 1])
+//		for(j = 0; j < sz - 1 - i; j++)
+//      if (arr[j] > arr[j + 1])
 //		{
 //			int tmp = arr[j];
 //			arr[j] = arr[j + 1];
@@ -378,8 +379,8 @@
 //int main()
 //{
 //	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
-//	//Ã°ÅİÅÅĞò
-//	int sz = sizeof(arr) / sizeof(arr[0]); //È·¶¨ÌËÊı
+//	//å†’æ³¡æ’åº
+//	int sz = sizeof(arr) / sizeof(arr[0]); //ç¡®å®šè¶Ÿæ•°
 //	bubble_sort(arr, sz);
 //	return 0;
 //}
