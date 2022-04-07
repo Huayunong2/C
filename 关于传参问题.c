@@ -1,15 +1,15 @@
 #include <stdio.h>
 void Test1(int* pp1, int* pp2)
 {
-	int tmp = pp1;
+	int* tmp = pp1;
 	pp1 = pp2;
 	pp2 = tmp;
 }
 void Test2(int** pp1, int** pp2)
 {
-	int tmp = pp1;
-	pp1 = pp2;
-	pp2 = tmp;
+	int* tmp = *pp1;
+	*pp1 = *pp2;
+	*pp2 = tmp;
 }
 int main()
 {
@@ -30,7 +30,7 @@ int main()
 
 	printf("p1:%p\n", p1);
 	printf("p2:%p\n", p2);
-	Test2(&p1,&p2);
+	Test2(&p1, &p2);
 	printf("----------传入后----------\n");
 	printf("p1:%p\n", p1);
 	printf("p2:%p\n", p2);
