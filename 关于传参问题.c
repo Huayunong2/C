@@ -7,7 +7,9 @@ void Test1(int* pp1, int* pp2)
 }
 void Test2(int** pp1, int** pp2)
 {
-	*pp1 = 0x
+	int tmp = pp1;
+	pp1 = pp2;
+	pp2 = tmp;
 }
 int main()
 {
@@ -20,7 +22,7 @@ int main()
 	printf("p1:%p\n", p1);
 	printf("p2:%p\n", p2);
 	Test1(p1, p2);
-	printf("----------´«Èëºó----------\n");
+	printf("----------ä¼ å…¥å----------\n");
 	printf("p1:%p\n", p1);
 	printf("p2:%p\n", p2);
 
@@ -29,9 +31,9 @@ int main()
 	printf("p1:%p\n", p1);
 	printf("p2:%p\n", p2);
 	Test2(&p1,&p2);
-	printf("----------´«Èëºó----------\n");
+	printf("----------ä¼ å…¥å----------\n");
 	printf("p1:%p\n", p1);
 	printf("p2:%p\n", p2);
-	//½áÂÛ:Òª¸Ä±äË­¾Í´«Ë­µÄµØÖ·£¬½ÓÊÕË­µÄµØÖ·¾Í¼ÓÒ»²ãÖ¸Õë
+	//ç»“è®º:è¦æ”¹å˜è°å°±ä¼ è°çš„åœ°å€ï¼Œæ¥æ”¶è°çš„åœ°å€å°±åŠ ä¸€å±‚æŒ‡é’ˆ
 	return 0;
 }
