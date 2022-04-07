@@ -1,7 +1,7 @@
 #include <stdio.h>
 void Test1(int* pp1, int* pp2)
 {
-	int* tmp = pp1;
+	int tmp = pp1;
 	pp1 = pp2;
 	pp2 = tmp;
 }
