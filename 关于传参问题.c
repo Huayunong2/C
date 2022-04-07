@@ -37,3 +37,18 @@ int main()
 	//结论:要改变谁就传谁的地址，接收谁的地址就加一层指针
 	return 0;
 }
+/*
+#include <stdio.h>
+void Test2(int* a1, int* a2) //a1.a2接收地址
+{
+	*a1 = 33; //解引用后就是变量a和变量b
+	*a2 = 34;
+}
+int main()
+{
+	int a = 20;
+	int b = 30;
+	Test2(&a, &b); //传入地址
+	printf("%d %d", a, b);
+}
+*/
