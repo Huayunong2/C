@@ -21,4 +21,4 @@ void ListPopFront(LTNode* phead);
 LTNode* ListFind(LTNode* phead, LTDataType x);
 void ListInsert(LTNode* pos, LTDataType x); //pos֮ǰ
 void ListErase(LTNode* pos);
-void ListDestroy(LTNode* pos);
+void ListDestroy(LTNode* phead);
